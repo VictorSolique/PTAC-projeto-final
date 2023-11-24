@@ -1,3 +1,12 @@
 .bg-cinza {
     background-color: #eeefef;
 }
+.largura-50 {
+    width: 50%;
+}
+
+@media (max-width: 650px) {
+    .largura-50 {
+        width: auto;
+    }
+}

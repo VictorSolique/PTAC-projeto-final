@@ -8,7 +8,7 @@ export default function Home() {
     return (
     <div className="container-xl bg-cinza pt-4">
         
-        <h1 className="text-start">Galeria de Músicas <span class="px-2 fs-3 bg-danger-subtle">Tema: Sertanejo</span></h1>   
+        <h1 className="text-start">Galeria de Músicas <span class="px-2 fs-4 fw-normal bg-danger-subtle">Tema: Sertanejo e Pagode</span></h1>    
          
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">

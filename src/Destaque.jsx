@@ -6,7 +6,7 @@ export default function Destaque() {
     return(
     <div className="container-xl bg-cinza pt-4">
         
-        <h1 className="text-start">Músicas Destaques <span class="px-2 fs-3 bg-danger-subtle">Tema: Sertanejo</span></h1>   
+        <h1 className="text-start">Músicas Destaques <span class="px-2 fs-4 fw-normal  bg-danger-subtle">Tema: Sertanejo e Pagode</span></h1>   
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
