@@ -16,7 +16,8 @@ export default function Registro() {
         </nav>
         <hr />
         <div className="container-xl">
-            <div className="mx-auto largura-50">
+            <div className="mx-auto largura-50 pb-5">
+                <h4 className="py-3 fw-normal text-center">Preencha as informações abaixo para enviar o video</h4>
                 <div class="mb-3">
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nome da Música" />
                 </div>
@@ -28,7 +29,7 @@ export default function Registro() {
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                        <label class="form-check-label" for="inlineRadio2">Samba</label>
+                        <label class="form-check-label" for="inlineRadio2">Pagode</label>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -42,6 +43,9 @@ export default function Registro() {
                 </div>
                 <div class="mb-3">
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Legenda (se houver)" />
+                </div>
+                <div className="text-center">
+                    <button className="btn btn-success">Enviar Vídeo</button>
                 </div>
             </div>
         </div>
