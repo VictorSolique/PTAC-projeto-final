@@ -15,12 +15,25 @@ export default function Destaque() {
             </ol>
         </nav>
         <h4 className="fw-bold pb-0 mb-0">Todos os Vídeos</h4>
-        <div class="container text-center">
+        <div class="container">
             <div class="row row-cols-2">
                 <div class="col my-2">
                     <div class="bg-danger ratio ratio-16x9">
                         <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
                     </div>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">Legenda</button>
+                    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div>
+                            I will not close if you click outside of me.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col my-2">
                     <div class="bg-danger ratio ratio-16x9">
@@ -39,6 +52,7 @@ export default function Destaque() {
                 </div>
 
             </div>
+
         </div>
 
             
