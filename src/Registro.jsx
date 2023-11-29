@@ -3,6 +3,39 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Registro() {
+    const[lista, setLista] = useState([]);
+    const[nome, setNome] = useState(""); 
+    const[id, setId] = useState(Math.random());
+    const[autor, setAutor] = useState("");
+    const[legenda, setLegenda] = useState("");
+    const[url, setUrl] = useState("");
+    const[categoria, setCategoria] = useState("");
+    const[descr, setDescr] = useState("");
+
+
+    const salvar = (e) => {
+        e.preventDefault();
+        if(nome === "" || autor === "") return;
+        setLista([...lista, {
+            id: id,
+            nome: nome,
+            autor: autor,
+            categoria: categoria,
+            descricao: descr,
+            legenda: legenda,
+            url: url
+        }]);
+        setId(id+1);
+        setNome("");
+        setAutor('');
+        setCategoria('');
+        setDescr('');
+        setLegenda('');
+        setUrl('');
+        console.log("Adicionou compra. Código: " + id, categoria);
+    }
+
+
     return(
     <div className="container-xl bg-cinza pt-4">
         
@@ -17,36 +50,30 @@ export default function Registro() {
         <hr />
         <div className="container-xl">
             <div className="mx-auto largura-50 pb-5">
-                <h4 className="py-3 fw-normal text-center">Preencha as informações abaixo para enviar o video</h4>
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nome da Música" />
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label mx-3">Categoria:</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                        <label class="form-check-label" for="inlineRadio1">Sertanejo</label>
+                <form onSubmit={salvar}>
+                    <h4 className="py-3 fw-normal text-center">Preencha as informações abaixo para enviar o video</h4>
+
+                        <input type="text" class="mb-3 form-control" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome da Música" />
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label mx-3">Categoria:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Sertanejo"  onChange={(e) => setCategoria(e.target.value)} />
+                            <label class="form-check-label" for="inlineRadio1">Sertanejo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Pagode"  onChange={(e) => setCategoria(e.target.value)} />
+                            <label class="form-check-label" for="inlineRadio2">Pagode</label>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                        <label class="form-check-label" for="inlineRadio2">Pagode</label>
+                        <input type="text" class="mb-3 form-control" value={autor} onChange={(e) => setAutor(e.target.value)} placeholder="Autor/Canal da Música" />
+                        <input type="text" class="mb-3 form-control" value={descr} onChange={(e) => setDescr(e.target.value)} placeholder="Descrição sobre a música" />
+                        <input type="text" class="mb-3 form-control" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" />
+                            <textarea class="mb-3 form-control" value={legenda} onChange={(e) => setLegenda(e.target.value)} placeholder="Legenda (se houver)" rows="10"></textarea>
+                    <div className="text-center">
+                        <button className="btn btn-success" type="submit">Enviar Vídeo</button>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Autor/Canal da Música" />
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Descrição sobre a música" />
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="URL" />
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Legenda (se houver)" />
-                </div>
-                <div className="text-center">
-                    <button className="btn btn-success">Enviar Vídeo</button>
-                </div>
+                </form> 
+                
             </div>
         </div>
    
