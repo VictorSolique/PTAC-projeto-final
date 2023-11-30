@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Destaque from "./Destaque";
 
 export default function Registro() {
     const[lista, setLista] = useState([]);
@@ -76,8 +77,10 @@ export default function Registro() {
                 
             </div>
         </div>
+
+        <Detalhe />
    
-        
     </div>
+    
     );
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Destaque() {
+export default function Destaque({listaVideos}) {
     return(
     <div className="container-xl bg-cinza pt-4">
         
@@ -16,8 +16,10 @@ export default function Destaque() {
         </nav>
         <h4 className="fw-bold pb-0 mb-0">Todos os Vídeos</h4>
         <div class="container">
-            <div class="row row-cols-2">
-                <div class="col my-2">
+            <div class="row">
+
+            {listaVideos.map((item) => (
+                <div class="col-sm-4 my-2">
                     <div class="bg-danger ratio ratio-16x9">
                         <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
                     </div>
@@ -35,21 +37,8 @@ export default function Destaque() {
                     </div>
 
                 </div>
-                <div class="col my-2">
-                    <div class="bg-danger ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col my-2">
-                    <div class="bg-danger ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col my-2">
-                    <div class="bg-danger ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                </div>
+            ))}
+                
 
             </div>
 
