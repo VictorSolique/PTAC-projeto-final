@@ -7,10 +7,7 @@ import Card from './Card';
 export default function Destaque() {
     const { id } = useParams();
     const lista = JSON.parse( localStorage.getItem("Lista"));
-    const produto = lista.filter((objeto) => {
-        if(lista.id <= 4) return objeto;
-        else return null;
-    })
+    let produto = lista.slice(0, 4);
 
     return(
     <div className="container-xl bg-cinza pt-4">
@@ -25,9 +22,9 @@ export default function Destaque() {
         </nav>
         <h4 className="fw-bold pb-0 mb-0">Todos os Vídeos</h4>
         <div class="container">                
-
-            <Card listaVideos={lista} />
-
+            <div class="row">
+                <Card listaVideos={produto} />
+            </div>    
         </div>
 
             

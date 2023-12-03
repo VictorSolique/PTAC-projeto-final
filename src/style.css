@@ -5,6 +5,10 @@
     width: 50%;
 }
 
+.abbr {
+    text-decoration: none;
+}
+
 @media (max-width: 650px) {
     .largura-50 {
         width: auto;
