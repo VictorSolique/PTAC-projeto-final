@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Destaque from "./Destaque";
 
 export default function Registro() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
@@ -78,8 +77,6 @@ export default function Registro() {
                 
             </div>
         </div>
-
-        <Detalhe />
    
     </div>
     
