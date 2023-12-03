@@ -78,6 +78,8 @@ export default function Registro() {
                 
             </div>
         </div>
+
+        <Detalhe />
    
     </div>
     

@@ -11,7 +11,7 @@ export default function Destaque() {
         else return null;
     })
 
-    return(
+    return (
     <div className="container-xl bg-cinza pt-4">
         
         <h1 className="text-start">Músicas Destaques <span class="px-2 fs-4 fw-normal  bg-danger-subtle">Tema: Sertanejo e Pagode</span></h1>   
