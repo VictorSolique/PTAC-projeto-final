@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Destaque from "./Destaque";
 
 export default function Registro() {
-    const[lista, setLista] = useState([]);
+    const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
+    const[lista, setLista] = useState(listaLocalStorage || []);
     const[nome, setNome] = useState(""); 
-    const[id, setId] = useState(Math.random());
+    const[id, setId] = useState(listaLocalStorage[listaLocalStorage.length-1]?.id + 1 || 1);
     const[autor, setAutor] = useState("");
     const[legenda, setLegenda] = useState("");
     const[url, setUrl] = useState("");
     const[categoria, setCategoria] = useState("");
     const[descr, setDescr] = useState("");
 
-
+    useEffect(() => { localStorage.setItem("Lista", JSON.stringify(lista)) },[lista]);
     const salvar = (e) => {
         e.preventDefault();
         if(nome === "" || autor === "") return;
@@ -77,7 +79,7 @@ export default function Registro() {
             </div>
         </div>
    
-        
     </div>
+    
     );
 }
