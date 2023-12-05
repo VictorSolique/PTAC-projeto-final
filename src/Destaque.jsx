@@ -7,7 +7,7 @@ import Card from './Card';
 export default function Destaque() {
     const { id } = useParams();
     const lista = JSON.parse( localStorage.getItem("Lista"));
-    let produto = lista.slice(0, 4);
+    let produto = lista.slice(-4);
 
     return(
     <div className="container-xl bg-cinza pt-4">
