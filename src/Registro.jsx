@@ -8,7 +8,7 @@ export default function Registro() {
     const[nome, setNome] = useState(""); 
     const[id, setId] = useState(listaLocalStorage[listaLocalStorage.length-1]?.id + 1 || 1);
     const[autor, setAutor] = useState("");
-    const[legenda, setLegenda] = useState("");
+    const[letra, setLetra] = useState("");
     const[url, setUrl] = useState("");
     const[categoria, setCategoria] = useState("");
     const[descr, setDescr] = useState("");
@@ -17,13 +17,14 @@ export default function Registro() {
     const salvar = (e) => {
         e.preventDefault();
         if(nome === "" || autor === "") return;
+        if(letra == "") letra = "Indisponível";
         setLista([...lista, {
             id: id,
             nome: nome,
             autor: autor,
             categoria: categoria,
             descricao: descr,
-            legenda: legenda,
+            letra: letra,
             url: url
         }]);
         setId(id+1);
@@ -31,7 +32,7 @@ export default function Registro() {
         setAutor('');
         setCategoria('');
         setDescr('');
-        setLegenda('');
+        setLetra('');
         setUrl('');
         console.log("Adicionou compra. Código: " + id, categoria);
     }
@@ -40,7 +41,7 @@ export default function Registro() {
     return(
     <div className="container-xl bg-cinza pt-4">
         
-        <h1 className="text-start">Registrar Música <span class="px-2 fs-4 fw-normal  bg-danger-subtle">Tema: Sertanejo e Pagode</span></h1>  
+        <h1 className="text-start">Registrar Música <span className="px-2 fs-4 fw-normal  bg-danger-subtle">Tema: Sertanejo e Pagode</span></h1>  
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
@@ -54,22 +55,22 @@ export default function Registro() {
                 <form onSubmit={salvar}>
                     <h4 className="py-3 fw-normal text-center">Preencha as informações abaixo para enviar o video</h4>
 
-                        <input type="text" class="mb-3 form-control" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome da Música" />
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label mx-3">Categoria:</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Sertanejo"  onChange={(e) => setCategoria(e.target.value)} />
-                            <label class="form-check-label" for="inlineRadio1">Sertanejo</label>
+                        <input type="text" className="mb-3 form-control" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome da Música" />
+                    <div className="mb-3">
+                        <label for="exampleFormControlInput1" className="form-label mx-3">Categoria:</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Sertanejo"  onChange={(e) => setCategoria(e.target.value)} />
+                            <label className="form-check-label" for="inlineRadio1">Sertanejo</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Pagode"  onChange={(e) => setCategoria(e.target.value)} />
-                            <label class="form-check-label" for="inlineRadio2">Pagode</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Pagode"  onChange={(e) => setCategoria(e.target.value)} />
+                            <label className="form-check-label" for="inlineRadio2">Pagode</label>
                         </div>
                     </div>
-                        <input type="text" class="mb-3 form-control" value={autor} onChange={(e) => setAutor(e.target.value)} placeholder="Autor/Canal da Música" />
-                        <input type="text" class="mb-3 form-control" value={descr} onChange={(e) => setDescr(e.target.value)} placeholder="Descrição sobre a música" />
-                        <input type="text" class="mb-3 form-control" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" />
-                            <textarea class="mb-3 form-control" value={legenda} onChange={(e) => setLegenda(e.target.value)} placeholder="Legenda (se houver)" rows="10"></textarea>
+                        <input type="text" className="mb-3 form-control" value={autor} onChange={(e) => setAutor(e.target.value)} placeholder="Autor/Canal da Música" />
+                        <input type="text" className="mb-3 form-control" value={descr} onChange={(e) => setDescr(e.target.value)} placeholder="Descrição sobre a música" />
+                        <input type="text" className="mb-3 form-control" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" />
+                            <textarea className="mb-3 form-control" value={letra} onChange={(e) => setLetra(e.target.value)} placeholder="Letra da Música (se houver)" rows="10"></textarea>
                     <div className="text-center">
                         <button className="btn btn-success" type="submit">Enviar Vídeo</button>
                     </div>
