@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer"
-import Header from "./Header";
+import Footer from "./Componentes/Footer"
+import Header from "./Componentes/Header";
 
 export default function Home() {
     const lista = JSON.parse( localStorage.getItem("Lista"));

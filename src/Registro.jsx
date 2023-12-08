@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
+import Header from "./Componentes/Header";
+import Footer from "./Componentes/Footer";
 
 export default function Registro() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("Lista")) || [];
@@ -81,6 +82,7 @@ export default function Registro() {
             </div>
         </div>
    
+        <Footer />
     </div>
     
     );

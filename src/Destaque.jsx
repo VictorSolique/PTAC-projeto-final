@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Card from './Card';
-import Header from "./Header";
+import Card from './Componentes/Card';
+import Header from "./Componentes/Header";
+import Footer from "./Componentes/Footer";
 
 export default function Destaque() {
     const { id } = useParams();
@@ -23,7 +24,7 @@ export default function Destaque() {
         </div>
 
             
-        
+        <Footer />
     </div>
     );
 }
