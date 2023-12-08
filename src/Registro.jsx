@@ -1,24 +1,28 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 export default function Registro() {
-    const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
+    const listaLocalStorage = JSON.parse(localStorage.getItem("Lista")) || [];
     const[lista, setLista] = useState(listaLocalStorage || []);
-    const[nome, setNome] = useState(""); 
     const[id, setId] = useState(listaLocalStorage[listaLocalStorage.length-1]?.id + 1 || 1);
+    const[nome, setNome] = useState(""); 
     const[autor, setAutor] = useState("");
     const[letra, setLetra] = useState("");
     const[url, setUrl] = useState("");
     const[categoria, setCategoria] = useState("");
     const[descr, setDescr] = useState("");
+    let titulo =  "Registrar Música";
 
     useEffect(() => { localStorage.setItem("Lista", JSON.stringify(lista)) },[lista]);
-    const salvar = (e) => {
+
+    const navigate = useNavigate();
+
+    const salvar = async (e) => {
         e.preventDefault();
         if(nome === "" || autor === "") return;
-        if(letra == "") letra = "Indisponível";
-        setLista([...lista, {
+        await setLista([...lista, {
             id: id,
             nome: nome,
             autor: autor,
@@ -28,12 +32,14 @@ export default function Registro() {
             url: url
         }]);
         setId(id+1);
+        navigate("/");
         setNome("");
         setAutor('');
         setCategoria('');
         setDescr('');
         setLetra('');
         setUrl('');
+        
         console.log("Adicionou compra. Código: " + id, categoria);
     }
 
@@ -41,15 +47,7 @@ export default function Registro() {
     return(
     <div className="container-xl bg-cinza pt-4">
         
-        <h1 className="text-start">Registrar Música <span className="px-2 fs-4 fw-normal  bg-danger-subtle">Tema: Sertanejo e Pagode</span></h1>  
-        <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item active" aria-current="page"><Link to="/destaque">Em Destaque</Link></li>
-                <li className="breadcrumb-item active" aria-current="page">Registrar Video</li>
-            </ol>
-        </nav>
-        <hr />
+        <Header titulo={titulo}/>
         <div className="container-xl">
             <div className="mx-auto largura-50 pb-5">
                 <form onSubmit={salvar}>
@@ -65,6 +63,10 @@ export default function Registro() {
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Pagode"  onChange={(e) => setCategoria(e.target.value)} />
                             <label className="form-check-label" for="inlineRadio2">Pagode</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="MPB"  onChange={(e) => setCategoria(e.target.value)} />
+                            <label className="form-check-label" for="inlineRadio3">MPB</label>
                         </div>
                     </div>
                         <input type="text" className="mb-3 form-control" value={autor} onChange={(e) => setAutor(e.target.value)} placeholder="Autor/Canal da Música" />
