@@ -12,7 +12,7 @@ export default function Destaque() {
         
         <Header titulo={titulo}/>
         <h4 className="fw-bold pb-0 mb-0">Músicas em Destaque</h4>
-        <div className="container">                
+        <div className="container-xl">                
             <div className="row">
                 <Card listaMusica={produto} />
             </div>    
