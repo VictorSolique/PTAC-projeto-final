@@ -22,7 +22,8 @@ export default function Registro() {
 
     const salvar = async (e) => {
         e.preventDefault();
-        if(nome === "" || autor === "") return;
+        if(nome === "" || autor === "" || categoria === "" || descricao === "" || url === "") return;
+        if(letra == "") useLetra("Letra da Música Indiponível Ø");
         await setLista([...lista, {
             id: id,
             nome: nome,

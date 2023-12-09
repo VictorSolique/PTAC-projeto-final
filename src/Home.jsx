@@ -12,7 +12,7 @@ export default function Home() {
     <div className="container-xl bg-cinza pt-4">
         
         <Header titulo={titulo}/>
-        <h4 className="fw-bold pb-0 mb-0">Todos os Vídeos</h4>
+        <h4 className="fw-bold pb-0 mb-0">Todas as Músicas</h4>
         <div className="container text-center">
             <div className="row">
                 {lista.map((item) => (

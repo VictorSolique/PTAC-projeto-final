@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import Destaque from './Destaque'
+import Detalhe from './Detalhe'
 import Registro from './Registro'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/destaque" element={<Destaque />}></Route>
+        <Route path='/destaque/:id' element={<Detalhe />}></Route>
         <Route path="/registro" element={<Registro />}></Route>
       </Routes>
     </BrowserRouter>
