@@ -8,7 +8,7 @@ export default function Header({titulo}) {
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                     <li className="breadcrumb-item active" aria-current="page"><Link to="/destaque">Em Destaque</Link></li>
-                    <li className="breadcrumb-item active" aria-current="page"><Link to="/registro">Registrar Vídeo</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page"><Link to="/registro">Registrar Música</Link></li>
                 </ol>
             </nav>
             <hr />

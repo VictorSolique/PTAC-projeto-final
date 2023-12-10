@@ -22,7 +22,6 @@ export default function Registro() {
 
     const salvar = async (e) => {
         e.preventDefault();
-        if(nome === "" || autor === "" || categoria === "" || descr === "" || url === "") return;
         await setLista([...lista, {
             id: id,
             nome: nome,
